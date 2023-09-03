@@ -1,0 +1,230 @@
+body::after {
+  content: '';
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  animation: start 1s linear;
+}
+
+@keyframes start {
+  0% {
+    z-index: 1000;
+    background-color: rgba(0,0,0,1);
+  }
+  20% {
+    z-index: 1000;
+    background-color: rgba(0,0,0,1);
+  }
+  100% {
+    z-index: 1000;
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+#overlay {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+}
+
+canvas {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+}
+
+.blink {
+  position: absolute;
+  z-index: 5000 !important;
+  animation: flash 2s linear;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(255,255,255,0);
+  }
+  15% {
+    background-color: rgba(255,255,255,1);
+  }
+  67% {
+    background-color: rgba(255,255,255,1);
+  }
+  100% {
+    background-color: rgba(255,255,255,0);
+  }
+}
+
+.a {
+  position: relative;
+  z-index: 100 !important;
+}
+
+.container {
+  position: absolute;
+  z-index: 10 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  animation: fadeIn 3s;
+}
+
+.projects {
+  position: absolute;
+  z-index: 10 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(0,0,0,.2);
+  box-shadow: 0 0 8px 8px rgba(0,0,0,.2);
+  text-shadow: 0 0 2px white;
+  border-radius: 128px;
+  padding: 16px;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.aboutMe {
+  position: absolute;
+  z-index: 10 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,.5);
+  border: 5px solid white;
+  box-shadow: 0 0 2px 2px rgba(255,255,255,.5), inset 0 0 2px 2px rgba(255,255,255,.5);
+  animation: about 3s linear forwards;
+}
+
+@keyframes about {
+  0% {
+    overflow: hidden;
+    max-width: 0px;
+    max-height: 0px;
+    padding: 0px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 32px;
+  }
+  50% {
+    overflow: hidden;
+    max-width: 0px;
+    max-height: 0px;
+    padding: 0px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 32px;
+  }
+  60% {
+    overflow: hidden;
+    max-width: 10px;
+    max-height: 10px;
+    padding: 0px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 32px;
+  }
+  70% {
+    overflow: hidden;
+    max-width: 400px;
+    max-height: 10px;
+    padding: 0px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 8px;
+  }
+  82% {
+    max-width: 400px;
+    max-height: 400px;
+    padding: 16px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 8px;
+  }
+  100% {
+    max-width: 400px;
+    max-height: 400px;
+    padding: 16px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 8px;
+  }
+}
+
+.go {
+  transition: font-weight .2s;
+}
+
+.go:hover {
+  font-weight: bold;
+  animation: tilt 1s linear infinite;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+.project {
+  position: absolute;
+  z-index: 10 !important;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,.2);
+  box-shadow: 0 0 8px 8px rgba(0,0,0,.2);
+  text-shadow: 0 0 2px white;
+  border-radius: 128px;
+  padding: 16px;
+  animation: appear 4s linear forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    font-size: 2px;
+  }
+  20% {
+    opacity: 0;
+    font-size: 2px;
+  }
+  100% {
+    opacity: 1;
+    font-size: inherit;
+  }
+}
