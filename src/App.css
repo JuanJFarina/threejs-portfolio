@@ -10,6 +10,10 @@ body::after {
   animation: start 1s linear;
 }
 
+* {
+  pointer-events: none;
+}
+
 @keyframes start {
   0% {
     z-index: 1000;
@@ -43,6 +47,7 @@ canvas {
   width: 100vw;
   height: 100vh;
   user-select: none;
+  pointer-events: all;
 }
 
 .blink {
@@ -78,6 +83,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border-radius: 8px;
   animation: fadeIn 3s;
 }
@@ -89,6 +95,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
   background-color: rgba(0,0,0,.2);
   box-shadow: 0 0 8px 8px rgba(0,0,0,.2);
@@ -117,6 +124,7 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   max-width: 500px;
   padding: 8px;
   color: white;
@@ -125,7 +133,7 @@ canvas {
   background-color: rgba(0,0,0,.5);
   border: 5px solid white;
   box-shadow: 0 0 2px 2px rgba(255,255,255,.5), inset 0 0 2px 2px rgba(255,255,255,.5);
-  animation: about 3s linear forwards;
+  animation: about 2s linear forwards;
 }
 
 @keyframes about {
@@ -179,11 +187,10 @@ canvas {
 
 .go {
   transition: font-weight .2s;
-}
-
-.go:hover {
+  cursor: pointer;
+  pointer-events: all;
   font-weight: bold;
-  animation: tilt 1s linear infinite;
+  animation: tilt 3s linear infinite;
 }
 
 @keyframes tilt {
@@ -206,11 +213,14 @@ canvas {
   z-index: 10 !important;
   text-align: center;
   color: white;
+  max-width: 400px;
   background-color: rgba(0,0,0,.2);
   box-shadow: 0 0 8px 8px rgba(0,0,0,.2);
   text-shadow: 0 0 2px white;
   border-radius: 128px;
   padding: 16px;
+  cursor: pointer;
+  pointer-events: all;
   animation: appear 4s linear forwards;
 }
 
@@ -226,5 +236,26 @@ canvas {
   100% {
     opacity: 1;
     font-size: inherit;
+  }
+}
+
+.moveMsg {
+  position: absolute;
+  z-index: 10 !important;
+  text-align: center;
+  animation: fadeIn 1s alternate-reverse infinite;
+}
+
+.mobile {
+  display: none;
+  animation: fadeIn 1s;
+}
+
+@media (max-width: 767px) {
+  .mobile {
+    display: block;
+  }
+  .moveMsg {
+    display: none;
   }
 }
