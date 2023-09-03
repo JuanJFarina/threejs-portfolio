@@ -31,8 +31,8 @@ var gui, scene, camera, renderer, cssRenderer, controls, proj1, proj2, proj3, pr
 
 function init() {
 
-  gui = new dat.GUI();
-  document.body.appendChild(gui.domElement);
+  //gui = new dat.GUI();
+  //document.body.appendChild(gui.domElement);
   var viewWidth = window.innerWidth;
   var viewHeight = window.innerHeight;
 
@@ -242,7 +242,7 @@ function init() {
   projects.appendChild(projHeading);
 
   const goBack = document.createElement('p');
-  goBack.className = 'go';
+  goBack.className = 'go star';
   goBack.textContent = '⇓ Go Back ⇓';
   projects.appendChild(goBack);
   goBack.addEventListener('click', () => {
@@ -270,8 +270,12 @@ function init() {
 
   const project1 = document.createElement('div');
   project1.className = 'project';
-  project1.textContent = 'Administrative Panel';
+  const proj1Head = document.createElement('h4');
+  proj1Head.className = 'star';
+  proj1Head.textContent = 'Administrative Panel';
+  project1.appendChild(proj1Head);
   const proj1Desc = document.createElement('p');
+  proj1Desc.className = 'star';
   proj1Desc.textContent = "Semi-Senior Frontend Technical Challenge made with TypeScript, Angular, Bootstrap and Vercel";
   project1.appendChild(proj1Desc);
   project1.addEventListener('click', () => {window.open('https://interneg-challenge.vercel.app/')})
@@ -290,8 +294,12 @@ function init() {
 
   const project2 = document.createElement('div');
   project2.className = 'project';
-  project2.textContent = 'ML REST API';
+  const proj2Head = document.createElement('h4');
+  proj2Head.className = 'star';
+  proj2Head.textContent = 'ML REST API';
+  project2.appendChild(proj2Head);
   const proj2Desc = document.createElement('p');
+  proj2Desc.className = 'star';
   proj2Desc.textContent = "Junior MLops Technical Challenge made with Python, FastAPI, MongoDB, and other ML libraries, with a CI/CD Pipeline with Unit-Testing, Linting, Type-Checking and Vercel";
   project2.appendChild(proj2Desc);
   project2.addEventListener('click', () => {window.open('https://ml-fast-api.vercel.app/docs#')})
@@ -310,8 +318,12 @@ function init() {
 
   const project3 = document.createElement('div');
   project3.className = 'project';
-  project3.textContent = 'Web Videogame';
+  const proj3Head = document.createElement('h4');
+  proj3Head.className = 'star';
+  proj3Head.textContent = 'Web Videogame';
+  project3.appendChild(proj3Head);
   const proj3Desc = document.createElement('p');
+  proj3Desc.className = 'star';
   proj3Desc.textContent = "Made during the 2015's Rosario Global Game Jam, an international 48hr development marathon";
   project3.appendChild(proj3Desc);
   project3.addEventListener('click', () => {window.open('https://gamejolt.com/games/jamming/46288')})
@@ -330,8 +342,12 @@ function init() {
 
   const project4 = document.createElement('div');
   project4.className = 'project';
-  project4.textContent = 'ARB Institutional Website';
+  const proj4Head = document.createElement('h4');
+  proj4Head.className = 'star';
+  proj4Head.textContent = 'ARB Institutional Website';
+  project4.appendChild(proj4Head);
   const proj4Desc = document.createElement('p');
+  proj4Desc.className = 'star';
   proj4Desc.textContent = "Made using Ajax, jQuery, PHP and MySQL, features student's registration, dashboards, tests submition, etc.";
   project4.appendChild(proj4Desc);
   project4.addEventListener('click', () => {window.open('https://www.academiarosarioballet.com.ar')})
@@ -352,7 +368,7 @@ function init() {
   aboutMe.className = 'aboutMe';
 
   const goBackUp = document.createElement('p');
-  goBackUp.className = 'go';
+  goBackUp.className = 'contLink';
   goBackUp.textContent = '⇑ Go Back ⇑';
   aboutMe.appendChild(goBackUp);
   goBackUp.addEventListener('click', () => {
@@ -385,6 +401,10 @@ function init() {
   const personal = document.createElement('div');
   personal.className = 'aboutMe';
 
+  const persHead = document.createElement('h2');
+  persHead.textContent = "Personal Information";
+  personal.appendChild(persHead);
+
   const personality = document.createElement('p');
   personality.textContent = "I'm an enthusiastic developer with a big passion for technology and logic. I've always loved to solve problems, discover the inner workings of technology, create algorithms and more efficient and effective solutions for every day problems.";
   personal.appendChild(personality);
@@ -397,8 +417,58 @@ function init() {
   persObj.position.set(7000, -15000, -6000);
   scene.add(persObj);
 
-  gui.add(persObj.position, 'x');
-  gui.add(persObj.position, 'z');
+  //CONTACT INFORMATION
+
+  const contact = document.createElement('div');
+  contact.className = 'aboutMe';
+
+  const contHead = document.createElement('h2');
+  contHead.textContent = "Contact Information";
+  contact.appendChild(contHead);
+
+  const contInfo = document.createElement('p');
+  contInfo.textContent = "LinkedIn";
+  contInfo.className = 'contLink';
+  contact.appendChild(contInfo);
+  contInfo.addEventListener('click', () => {window.open('https://linkedin.com/in/juanjosefarina')});
+
+  const contInfo2 = document.createElement('p');
+  contInfo2.textContent = "Github";
+  contInfo2.className = 'contLink';
+  contact.appendChild(contInfo2);
+  contInfo2.addEventListener('click', () => {window.open('https://github.com/juanjfarina')});
+
+  const contInfo3 = document.createElement('p');
+  contInfo3.textContent = "CV";
+  contInfo3.className = 'contLink';
+  contact.appendChild(contInfo3);
+  contInfo3.addEventListener('click', () => {window.open('https://docs.google.com/document/d/15zYYc_d1gcCBmfVd-C04rti5hQeozUA5MVOWW5wIuFg/edit?usp=sharing')});
+
+  const contObj = new CSS2DObject(contact);
+  contObj.position.set(-5000, -15000, -8000);
+  scene.add(contObj);
+
+  //PROFESSIONAL INFORMATION
+
+  const profes = document.createElement('div');
+  profes.className = 'aboutMe';
+
+  const profHead = document.createElement('h2');
+  profHead.textContent = "Professional Information";
+  profes.appendChild(profHead);
+
+  const profInfo = document.createElement('p');
+  profInfo.textContent = 
+    `In 2010 I studied for 2 years the Computer Systems Analyst Career. 
+    I've made several personal projects since then, most made in HTML, CSS and JS, but also some with PHP, MySQL, Java and WebGL. 
+    Since january of 2023 I've completed many certifications and I've been working as developer since june at No Country. 
+    I'm now versed in React, Node, MongoDB, TypeScript, Angular, Next, Nest and many other technologies. 
+    I've got also knowledge in CI/CD pipelines, unit testing, docker, etc.`;
+  profes.appendChild(profInfo);
+
+  const profObj = new CSS2DObject(profes);
+  profObj.position.set(-5000, -15000, 5000);
+  scene.add(profObj);
 
   // ANIMATE CALL
 
