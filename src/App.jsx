@@ -41,14 +41,14 @@ function init() {
   // BASIC SETUP
 
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(55, viewWidth / viewHeight, 45, 12500);
+  camera = new THREE.PerspectiveCamera((viewWidth < 700 ? 65 : 55), viewWidth / viewHeight, 45, (viewWidth < 700 ? 12000 : 12500));
   camera.position.set(-900, -200, -900);
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(viewWidth, viewHeight);
   document.body.appendChild(renderer.domElement);
   controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 0;
-  controls.maxDistance = 1500;
+  controls.maxDistance = (viewWidth < 700 ? 500 : 1500);
 
   // FIRST SKYBOX
 
@@ -454,7 +454,14 @@ function init() {
   pic.className = 'pic';
 
   const picObj = new CSS2DObject(pic);
-  picObj.position.set(10000, -14000, -2000);
+  let x, y, z;
+  if (viewWidth < 700) {
+    x = 7000; y = -9000; z = -6000;
+  }
+  else {
+    x = 10000; y = -14000; z = -2000;
+  }
+  picObj.position.set(x, y, z);
   scene.add(picObj);
 
   //CONTACT INFORMATION
